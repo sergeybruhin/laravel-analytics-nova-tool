@@ -1,8 +1,8 @@
 {
-    "name": "sergeybruhin/nova-analytics",
-    "description": "Laravel Nova 4/5 resources, metrics and dashboard for sergeybruhin/laravel-analytics visitor/session/pageview/event data",
-    "keywords": ["sergeybruhin", "nova-analytics", "laravel", "nova", "analytics"],
-    "homepage": "https://github.com/sergeybruhin/nova-analytics",
+    "name": "sergeybruhin/laravel-analytics-nova-tool",
+    "description": "Laravel Nova 4/5 resources, metrics, dashboard and filterable report Tool for sergeybruhin/laravel-analytics visitor/session/pageview/event data",
+    "keywords": ["sergeybruhin", "laravel-analytics-nova-tool", "laravel", "nova", "analytics"],
+    "homepage": "https://github.com/sergeybruhin/laravel-analytics-nova-tool",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -13,8 +13,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/sergeybruhin/nova-analytics/issues",
-        "source": "https://github.com/sergeybruhin/nova-analytics"
+        "issues": "https://github.com/sergeybruhin/laravel-analytics-nova-tool/issues",
+        "source": "https://github.com/sergeybruhin/laravel-analytics-nova-tool"
     },
     "require": {
         "php": "^8.2",
