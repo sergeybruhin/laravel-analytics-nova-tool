@@ -2,7 +2,7 @@
 
 namespace SergeyBruhin\NovaAnalytics\Dashboards;
 
-use Laravel\Nova\Dashboards\Dashboard;
+use Laravel\Nova\Dashboard;
 use SergeyBruhin\NovaAnalytics\Metrics\PageviewsTrend;
 use SergeyBruhin\NovaAnalytics\Metrics\TopTrafficSources;
 
