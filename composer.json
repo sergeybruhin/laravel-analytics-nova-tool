@@ -1,0 +1,42 @@
+{
+    "name": "sergeybruhin/nova-analytics",
+    "description": "Laravel Nova 4/5 resources, metrics and dashboard for sergeybruhin/laravel-analytics visitor/session/pageview/event data",
+    "keywords": ["sergeybruhin", "nova-analytics", "laravel", "nova", "analytics"],
+    "homepage": "https://github.com/sergeybruhin/nova-analytics",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Sergey Bruhin",
+            "email": "sundaycreative@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/sergeybruhin/nova-analytics/issues",
+        "source": "https://github.com/sergeybruhin/nova-analytics"
+    },
+    "require": {
+        "php": "^8.2",
+        "laravel/nova": "^4.0|^5.0",
+        "sergeybruhin/laravel-analytics": "^0.0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "SergeyBruhin\\NovaAnalytics\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "SergeyBruhin\\NovaAnalytics\\Providers\\NovaAnalyticsServiceProvider"
+            ]
+        }
+    }
+}
