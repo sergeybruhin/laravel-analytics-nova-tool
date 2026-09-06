@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 While the version is below 1.0.0, routes, config keys and response shapes may change in a minor
 release.
 
+## [0.1.1] - 2026-09-06
+
+### Fixed
+
+- Widened the `sergeybruhin/laravel-analytics` constraint from `^0.0.1` to `^0.0.2` — Composer's
+  caret rule excluded `0.0.2` from the former, but the `Visitor`/`Session` `HasMany` relations
+  these resources depend on only exist starting at that version.
+
 ## [0.1.0] - 2026-09-06
 
 Initial release.
@@ -27,4 +35,5 @@ Initial release.
 - Vue 3 + Chart.js front end, built with the standard Nova 4 `nova:tool` scaffold (Laravel Mix);
   `dist/` is committed so installing the package needs no Node.
 
+[0.1.1]: https://github.com/sergeybruhin/laravel-analytics-nova-tool/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/sergeybruhin/laravel-analytics-nova-tool/releases/tag/v0.1.0
