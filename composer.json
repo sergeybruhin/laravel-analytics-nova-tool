@@ -19,7 +19,7 @@
     "require": {
         "php": "^8.2",
         "laravel/nova": "^4.0|^5.0",
-        "sergeybruhin/laravel-analytics": "^0.0.2"
+        "sergeybruhin/laravel-analytics": ">=0.0.2 <0.1"
     },
     "autoload": {
         "psr-4": {

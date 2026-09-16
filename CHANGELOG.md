@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 While the version is below 1.0.0, routes, config keys and response shapes may change in a minor
 release.
 
+## [0.1.2] - 2026-09-16
+
+### Fixed
+
+- Replaced the `sergeybruhin/laravel-analytics` caret constraint with the range `>=0.0.2 <0.1`.
+  Composer reads `^0.0.2` as `>=0.0.2 <0.0.3`, so every patch release of that package made this
+  one uninstallable alongside it — 0.1.1 existed for no other reason than to widen the same
+  constraint by one patch. The range ends that cycle: anything in the 0.0.x line resolves, and a
+  0.1.0 release of the dependency (where the API may actually change) still needs a look.
+
 ## [0.1.1] - 2026-09-06
 
 ### Fixed
