@@ -8,6 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 While the version is below 1.0.0, routes, config keys and response shapes may change in a minor
 release.
 
+## [Unreleased] (proposed 0.2.0)
+
+### Added
+
+- **Internal traffic is excluded by default**, like bots. Every chart, the top pages table, the
+  trend card, the traffic-sources partition and the filter dropdowns leave out sessions and
+  visitors that laravel-analytics flags `is_internal` (the host's staff and test devices). A new
+  «Включая внутренний трафик» checkbox puts them back.
+- An `Internal` column on the Visitor and Session resources.
+
+### Changed
+
+- Requires `sergeybruhin/laravel-analytics` `>=0.0.4 <0.1`, which adds the `is_internal` columns.
+  Publish and run its new migration first.
+
 ## [0.1.2] - 2026-09-16
 
 ### Fixed

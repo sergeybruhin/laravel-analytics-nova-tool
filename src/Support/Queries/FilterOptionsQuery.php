@@ -45,6 +45,7 @@ final class FilterOptionsQuery
         return Session::query()
             ->tap(fn ($query) => $filters->applyDateRange($query, 'started_at'))
             ->when(! $filters->includeBots, fn ($query) => $query->where('is_bot', false))
+            ->when(! $filters->includeInternal, fn ($query) => $query->where('is_internal', false))
             ->whereNotNull($column)
             ->where($column, '!=', '')
             ->distinct()

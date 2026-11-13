@@ -13,7 +13,7 @@ class PageviewsTrend extends Trend
     {
         return $this->countByDays($request, Pageview::query()->whereHas(
             'session',
-            fn ($query) => $query->where('is_bot', false)
+            fn ($query) => $query->where('is_bot', false)->where('is_internal', false)
         ));
     }
 

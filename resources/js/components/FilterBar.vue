@@ -54,6 +54,12 @@
           Включая ботов
         </CheckboxWithLabel>
       </div>
+
+      <div class="flex items-end">
+        <CheckboxWithLabel :checked="filters.include_internal" @input="update('include_internal', $event.target.checked)">
+          Включая внутренний трафик
+        </CheckboxWithLabel>
+      </div>
     </div>
   </Card>
 </template>
@@ -84,7 +90,7 @@ export default {
     activeCount() {
       return ['utm_source', 'utm_medium', 'utm_campaign', 'device_type', 'browser', 'os']
         .filter((key) => this.filters[key])
-        .length + (this.filters.include_bots ? 1 : 0)
+        .length + (this.filters.include_bots ? 1 : 0) + (this.filters.include_internal ? 1 : 0)
     },
   },
 

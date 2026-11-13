@@ -3,6 +3,7 @@
 namespace SergeyBruhin\NovaAnalytics\Resources;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\HasMany;
@@ -36,6 +37,7 @@ class Visitor extends Resource
             DateTime::make('First Seen At', 'first_seen_at')->sortable(),
             DateTime::make('Last Seen At', 'last_seen_at')->sortable(),
             Text::make('External ID', 'external_id')->sortable(),
+            Boolean::make('Internal', 'is_internal')->sortable(),
             Text::make('First Landing URL', 'first_landing_url')->onlyOnDetail(),
             Text::make('First Referrer', 'first_referrer')->onlyOnDetail(),
             Text::make('First UTM Source', 'first_utm_source')->sortable(),

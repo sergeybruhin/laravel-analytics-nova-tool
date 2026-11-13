@@ -87,7 +87,7 @@ fields: `Visitor → Sessions/Pageviews/Events`, `Session → Visitor`, `Session
 
 ## Metrics & Dashboard
 
-`Metrics\PageviewsTrend` (daily pageviews, bot sessions excluded) and `Metrics\TopTrafficSources`
+`Metrics\PageviewsTrend` (daily pageviews, bot and internal sessions excluded) and `Metrics\TopTrafficSources`
 (visitors by first-touch UTM source) are bundled into `Dashboards\Analytics`, a small
 always-visible-range dashboard for a quick glance from the sidebar.
 
@@ -105,8 +105,9 @@ way to share a filter across cards. One filter bar here drives four views at onc
 - **Device breakdown** — sessions grouped by device type, browser and OS.
 
 Filter bar dimensions: date-range presets (today / yesterday / last 7 days / last 30 days / this
-month / last month), UTM source/medium/campaign, device type/browser/OS, and a bot-traffic
-include/exclude toggle (every view excludes bot sessions by default).
+month / last month), UTM source/medium/campaign, device type/browser/OS, and bot-traffic and
+internal-traffic include/exclude toggles. By default every view excludes bot sessions and the
+host's own internal traffic (laravel-analytics' `resolveInternalUsing`).
 
 ### HTTP surface
 
@@ -124,7 +125,7 @@ host app, or allowed by default if the host hasn't defined it.
 | `GET` | `/devices` | sessions grouped by device type/browser/OS |
 
 All five accept the same query params: `period`, `utm_source`, `utm_medium`, `utm_campaign`,
-`device_type`, `browser`, `os`, `include_bots` (`0`/`1`).
+`device_type`, `browser`, `os`, `include_bots` and `include_internal` (`0`/`1`).
 
 ## Building the assets
 

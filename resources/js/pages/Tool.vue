@@ -56,6 +56,7 @@ export default {
         browser: '',
         os: '',
         include_bots: false,
+        include_internal: false,
       },
       trend: [],
       topPages: [],
@@ -88,6 +89,7 @@ export default {
         browser: this.filters.browser || undefined,
         os: this.filters.os || undefined,
         include_bots: this.filters.include_bots ? 1 : 0,
+        include_internal: this.filters.include_internal ? 1 : 0,
       }
     },
 

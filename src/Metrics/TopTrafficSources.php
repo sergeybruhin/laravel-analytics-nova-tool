@@ -11,7 +11,7 @@ class TopTrafficSources extends Partition
 {
     public function calculate(NovaRequest $request): PartitionResult
     {
-        return $this->count($request, Visitor::query(), 'first_utm_source')
+        return $this->count($request, Visitor::query()->where('is_internal', false), 'first_utm_source')
             ->label(fn (?string $value) => $value ?: 'Direct / unknown');
     }
 

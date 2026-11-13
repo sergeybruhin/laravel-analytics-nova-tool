@@ -39,6 +39,7 @@ class Session extends Resource
             DateTime::make('Started At', 'started_at')->sortable(),
             DateTime::make('Ended At', 'ended_at')->sortable(),
             Boolean::make('Bot', 'is_bot'),
+            Boolean::make('Internal', 'is_internal'),
             Text::make('Device Type', 'device_type'),
             Text::make('Browser'),
             Text::make('OS', 'os'),

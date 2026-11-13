@@ -33,8 +33,8 @@ final class AnalyticsFilters
         public readonly ?string $browser,
         public readonly ?string $os,
         public readonly bool $includeBots,
-    ) {
-    }
+        public readonly bool $includeInternal = false,
+    ) {}
 
     public static function fromRequest(Request $request): self
     {
@@ -52,6 +52,9 @@ final class AnalyticsFilters
             browser: self::nullableString($request, 'browser'),
             os: self::nullableString($request, 'os'),
             includeBots: $request->boolean('include_bots', false),
+            // The host's own traffic (staff, test devices — laravel-analytics'
+            // resolveInternalUsing) is left out unless asked for, like bots.
+            includeInternal: $request->boolean('include_internal', false),
         );
     }
 
@@ -71,7 +74,6 @@ final class AnalyticsFilters
     }
 
     /**
-     * @param  Builder  $query
      * @return Builder
      */
     public function applyDateRange(Builder $query, string $column)
@@ -90,13 +92,13 @@ final class AnalyticsFilters
      * queries — the same pattern the package's existing PageviewsTrend metric already uses
      * for its `is_bot` exclusion, just generalised to the rest of the session columns.
      *
-     * @param  Builder  $query
      * @return Builder
      */
     public function applySessionAttributes(Builder $query)
     {
         return $query
             ->when(! $this->includeBots, fn ($q) => $q->where($q->qualifyColumn('is_bot'), false))
+            ->when(! $this->includeInternal, fn ($q) => $q->where($q->qualifyColumn('is_internal'), false))
             ->when($this->utmSource, fn ($q, $value) => $q->where($q->qualifyColumn('utm_source'), $value))
             ->when($this->utmMedium, fn ($q, $value) => $q->where($q->qualifyColumn('utm_medium'), $value))
             ->when($this->utmCampaign, fn ($q, $value) => $q->where($q->qualifyColumn('utm_campaign'), $value))
